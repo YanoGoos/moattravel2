@@ -30,7 +30,7 @@ footer {
 .moattravel-wrapper {
 	min-height: 100vh;
 	position: relative;
-	padding: 60px;
+	padding-bottom: 60px;
 	box-sizing: border-box;
 }
 
@@ -62,6 +62,11 @@ footer {
 .moattravel-active {
 	background-color: #5196a6 !important;
 	border-color: #5196a6 !important;
+}
+
+.moattravel-pre-wrap {
+	/*改行文字で折り返す*/
+	white-space: pre-wrap;
 }
 
 @media screen and (min-width:1400px) {
