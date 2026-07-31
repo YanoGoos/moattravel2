@@ -39,16 +39,19 @@
 						<ul class="navbar-nav ms-auto">
 							<!-- 未ログインであれば表示する -->
 							<li class="nav-item" sec:authorize="isAnonymous()">
-								<a class="nav-link" th:href="@{login}">ログイン</a>
+								<a class="nav-link" th:href="@{/login}">ログイン</a>
+							</li>
+							<li class="nav-item" sec:authorize="isAnonymous()">
+								<a class="nav-link" th:href="@{/signup}">会員登録</a>
 							</li>
 							
 							<!-- ログイン済みであれば表示する -->
 							<li class="nav-item dropdown" sec:authorize="hasRole('ROLE_GENERAL')">
-								<a id="navbarDropDownGeneral" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+								<a id="navbarDropdownGeneral" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
 									<span sec:authentication="principal.user.name"></span>
 								</a>
 								
-								<div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropDownGeneral">
+								<div class="dropdown-menu dropDown-menu-end" aria-labelledby="navbarDropdownGeneral">
 									<a class="dropdown-item moattravel-dropdown-item" th:href="@{/logout}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
 										ログアウト
 									</a>
@@ -57,16 +60,16 @@
 							</li>
 							<!-- 管理者であれば表示する -->
 							<li class="nav-item dropdown" sec:authorize="hasRole('ROLE_ADMIN')">
-								<a id="navbarDropDownAdmin"  class="nav-link dropdown-toggle"  href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+								<a id="navbarDropdownAdmin" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
 									管理者メニュー
 								</a>
 								
-								<div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropDownAdmin">
+								<div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownAdmin">
 									<a class="dropdown-item moattravel-dropdown-item" th:href="@{/admin/houses}">民宿一覧</a>
 									
 									<div class="dropdown-driver"></div>
 									
-									<a class="dropdown-item moattravel-dropdown-item" th:href="@{/logout}">
+									<a class="dropdown-item moattravel-dropdown-item" th:href="@{/logout}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
 										ログアウト
 									</a>
 									<form class="d-none" id="logout-form" th:action="@{/logout}" method="post"></form>
