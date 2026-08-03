@@ -31,7 +31,7 @@ public class UserService {
 		user.setFurigana(signupForm.getFurigana());
 		user.setPostalCode(signupForm.getPostalCode());
 		user.setAddress(signupForm.getAddress());
-		user.setPhone_number(signupForm.getPhoneNumber());
+		user.setPhoneNumber(signupForm.getPhoneNumber());
 		user.setEmail(signupForm.getEmail());
 		user.setPassword(passwordEncoder.encode(signupForm.getPassword()));
 		user.setRole(role);
